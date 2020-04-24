@@ -5,7 +5,6 @@ const db = require('./data/dbConfig.js');
 const server = express();
 
 server.use(express.json());
-//Functional
 
 server.get('/accounts', (req, res) => {
 	db('accounts')
@@ -16,7 +15,6 @@ server.get('/accounts', (req, res) => {
 			res.status(500).json({ message: 'error getting the accounts' });
 		});
 });
-//Functional
 
 server.get('/accounts/:id', (req, res) => {
 	db('accounts')
@@ -29,6 +27,7 @@ server.get('/accounts/:id', (req, res) => {
 			res.status(500).json({ message: 'error getting the accounts' });
 		});
 });
+
 server.post('/accounts', (req, res) => {
 	const account = req.body;
 	db('accounts')
@@ -40,6 +39,7 @@ server.post('/accounts', (req, res) => {
 			res.status(500).json({ message: 'error saving the account to the db' });
 		});
 });
+
 server.put('/accounts/:id', (req, res) => {
 	const changes = req.body;
 	db('accounts')
@@ -56,7 +56,6 @@ server.put('/accounts/:id', (req, res) => {
 			res.status(500).json({ message: 'error updating the account' });
 		});
 });
-//Functional
 server.delete('/accounts/:id', (req, res) => {
 	db('accounts')
 		.where('id', '=', req.params.id)
