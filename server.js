@@ -56,6 +56,7 @@ server.put('/accounts/:id', (req, res) => {
 			res.status(500).json({ message: 'error updating the account' });
 		});
 });
+
 server.delete('/accounts/:id', (req, res) => {
 	db('accounts')
 		.where('id', '=', req.params.id)
